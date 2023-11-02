@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./Components/Header";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
+import Signup from "./Components/Signup";
+import Footer from "./Components/Footer";
+import Mens from "./Pages/Mens";
+import Women from "./Pages/Women";
+import Kids from "./Pages/Kids";
+import Cart from "./Pages/Cart";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Router>
+        <Routes>
+        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/signup" element={<Signup/>}></Route>
+        <Route path="/" element={<Home/>}></Route>
+        <Route path="/mens" element={<Mens/>}></Route>
+        <Route path="/women" element={<Women/>}></Route>
+        <Route path="/kids" element={<Kids/>}></Route>
+        <Route path="/cart" element={<Cart/>}></Route>
+        </Routes>
+      </Router>
+      <Footer/>
+    </>
   );
-}
+};
 
 export default App;
